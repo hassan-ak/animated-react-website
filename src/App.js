@@ -12,31 +12,31 @@ function App() {
   // What to Display on the page
   return (
     // Div for enclosing the complete page
-    <div>
+    <div className="container">
       {/* Div for card (actual content of the page) */}
-      <div>
+      <div className="card">
         {/* Div For Displaying Sneeker */}
-        <div>
+        <div className="sneaker">
           {/* A circle in the background of the sneaker */}
-          <div></div>
+          <div className="circle"></div>
           {/* Sneakers image */}
           <img src={adidas} alt="adidas"/>
         </div>
         {/* div for info of the sneakers */}
-        <div>
+        <div className="info">
           {/* Title or name of the item */}
           <h1>Adidas ZX</h1>
           {/* Item Description */}
           <h3>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.</h3>
           {/* Div for displaying different buttons showing different sizes */}
-          <div>
+          <div className="sizes">
                 <button>39</button>
                 <button>40</button>
-                <button>42</button>
+                <button className="active">42</button>
                 <button>44</button>
           </div>
           {/* Div for purchase button */}
-          <div>
+          <div className="purchase">
                 <button>Purchase</button>
           </div>
         </div>
