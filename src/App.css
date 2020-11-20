@@ -115,3 +115,81 @@ button.active {
   font-weight: bolder;
 }
 
+/* At media Queries for responsive design */
+@media(  max-width: 700px){
+  .container{
+    width: 600px;
+  }
+  .card{
+    width: 460px;
+  }
+}
+@media(  max-width: 600px){
+  .container{
+    width: 500px;
+  }
+  .card{
+    width: 400px;
+  }
+  .sizes {
+    flex-direction: column;
+  }
+  .sizes button{
+    margin-top: 20px;
+  }
+}
+@media(  max-width: 500px){
+  .container{
+    width: 400px;
+  }
+  .card{
+    width: 350px;
+  }
+  .sizes {
+    flex-direction: column;
+  }
+  .sizes button{
+    margin-top: 20px;
+  }
+  .info h1 {
+    font-size: 2rem;
+  }
+  .info h3 {
+    font-size: 0.8rem;
+    padding: 0.8rem 0rem;
+  }
+  .circle {
+    width: 10rem;
+    height: 10rem;
+  }
+  .sneaker {
+    min-height: 25vh;
+  }
+  .sneaker img {
+    width: 15rem;
+  }
+}
+@media(  max-width: 400px){
+  .container{
+    width: 320px;
+  }
+  .card{
+    width: 300px;
+  }
+}
+@media(  max-width: 320px){
+  .container{
+    width: 280px;
+  }
+  .card{
+    width: 260px;
+  }
+}
+@media(  max-width: 280px){
+  .container{
+    width: 250px;
+  }
+  .card{
+    width: 230px;
+  }
+}
