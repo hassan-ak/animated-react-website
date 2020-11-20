@@ -10,22 +10,24 @@ import './App.css';
 function App() {
   // Define useRef variables
   const card = useRef(null);
-
+  const sneaker = useRef(null)
   // Function for moving animation when curser moving on the container
   function moveAnimations(e) {
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
     card.current.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
   }
+  // Function for moving animation when curser moving into the container
   function animateIn(e) {
     card.current.style.transition = "none";
+    sneaker.current.style.transform = "translateZ(200px) rotateZ(-45deg)";
   }
-
+  // Function for moving animation when curser moving out of the container
   function animateOut(e) {
-    card.current.style.transition = "all 0.5s ease";
+    card.current.style.transition = "all 2s ease";
     card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    sneaker.current.style.transform = "translateZ(0px) rotateZ(0deg)";
   }
-
   // What to Display on the page
   return (
     // Div for enclosing the complete page
@@ -41,7 +43,7 @@ function App() {
           {/* A circle in the background of the sneaker */}
           <div className="circle"></div>
           {/* Sneakers image */}
-          <img src={adidas} alt="adidas"/>
+          <img ref = {sneaker} src={adidas} alt="adidas"/>
         </div>
         {/* div for info of the sneakers */}
         <div className="info">
