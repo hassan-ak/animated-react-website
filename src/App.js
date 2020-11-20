@@ -13,6 +13,8 @@ function App() {
   const sneaker = useRef(null);
   const title = useRef(null);
   const description = useRef(null);
+  const sizes = useRef(null);
+  const purchase = useRef(null);
   // Function for moving animation when curser moving on the container
   function moveAnimations(e) {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
@@ -25,6 +27,8 @@ function App() {
     sneaker.current.style.transform = "translateZ(200px) rotateZ(-45deg)";
     title.current.style.transform = "translateZ(150px)";
     description.current.style.transform = "translateZ(125px)";
+    sizes.current.style.transform = "translateZ(100px)";
+    purchase.current.style.transform = "translateZ(75px)";
   }
   // Function for moving animation when curser moving out of the container
   function animateOut(e) {
@@ -33,6 +37,8 @@ function App() {
     sneaker.current.style.transform = "translateZ(0px) rotateZ(0deg)";
     title.current.style.transform = "translateZ(0px)";
     description.current.style.transform = "translateZ(0px)";
+    sizes.current.style.transform = "translateZ(0px)";
+    purchase.current.style.transform = "translateZ(0px)";
   }
   // What to Display on the page
   return (
@@ -58,14 +64,14 @@ function App() {
           {/* Item Description */}
           <h3 ref = {description}>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.</h3>
           {/* Div for displaying different buttons showing different sizes */}
-          <div className="sizes">
+          <div ref = {sizes} className="sizes">
                 <button>39</button>
                 <button>40</button>
                 <button className="active">42</button>
                 <button>44</button>
           </div>
           {/* Div for purchase button */}
-          <div className="purchase">
+          <div ref = {purchase} className="purchase">
                 <button>Purchase</button>
           </div>
         </div>
