@@ -10,7 +10,9 @@ import './App.css';
 function App() {
   // Define useRef variables
   const card = useRef(null);
-  const sneaker = useRef(null)
+  const sneaker = useRef(null);
+  const title = useRef(null);
+  const description = useRef(null);
   // Function for moving animation when curser moving on the container
   function moveAnimations(e) {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
@@ -21,12 +23,16 @@ function App() {
   function animateIn(e) {
     card.current.style.transition = "none";
     sneaker.current.style.transform = "translateZ(200px) rotateZ(-45deg)";
+    title.current.style.transform = "translateZ(150px)";
+    description.current.style.transform = "translateZ(125px)";
   }
   // Function for moving animation when curser moving out of the container
   function animateOut(e) {
     card.current.style.transition = "all 2s ease";
     card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
     sneaker.current.style.transform = "translateZ(0px) rotateZ(0deg)";
+    title.current.style.transform = "translateZ(0px)";
+    description.current.style.transform = "translateZ(0px)";
   }
   // What to Display on the page
   return (
@@ -48,9 +54,9 @@ function App() {
         {/* div for info of the sneakers */}
         <div className="info">
           {/* Title or name of the item */}
-          <h1>Adidas ZX</h1>
+          <h1 ref = {title} className="title">Adidas ZX</h1>
           {/* Item Description */}
-          <h3>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.</h3>
+          <h3 ref = {description}>FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.</h3>
           {/* Div for displaying different buttons showing different sizes */}
           <div className="sizes">
                 <button>39</button>
