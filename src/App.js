@@ -17,12 +17,22 @@ function App() {
     let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
     card.current.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
   }
+  function animateIn(e) {
+    card.current.style.transition = "none";
+  }
+
+  function animateOut(e) {
+    card.current.style.transition = "all 0.5s ease";
+    card.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  }
 
   // What to Display on the page
   return (
     // Div for enclosing the complete page
     <div className="container" 
          onMouseMove={(e)=>{moveAnimations(e)}}
+         onMouseEnter={(e)=>{animateIn(e)}}
+         onMouseLeave={(e)=>{animateOut(e)}}
     >
       {/* Div for card (actual content of the page) */}
       <div ref = {card} className="card">
