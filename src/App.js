@@ -1,6 +1,6 @@
 // Imports
 // React Imports
-import React from 'react';
+import React, { useRef } from 'react';
 // Images Imports
 import adidas from './adidas.png';
 // Styles Imports
@@ -8,13 +8,24 @@ import './App.css';
 
 // App Function
 function App() {
+  // Define useRef variables
+  const card = useRef(null);
+
+  // Function for moving animation when curser moving on the container
+  function moveAnimations(e) {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+    card.current.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+  }
 
   // What to Display on the page
   return (
     // Div for enclosing the complete page
-    <div className="container">
+    <div className="container" 
+         onMouseMove={(e)=>{moveAnimations(e)}}
+    >
       {/* Div for card (actual content of the page) */}
-      <div className="card">
+      <div ref = {card} className="card">
         {/* Div For Displaying Sneeker */}
         <div className="sneaker">
           {/* A circle in the background of the sneaker */}
